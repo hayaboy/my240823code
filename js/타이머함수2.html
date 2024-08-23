@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+
+       function startCountdown() {
+            // 카운트다운 시간 설정 (초)
+            let countdownTime = 10; // 예: 10초
+
+            // 카운트다운을 표시할 요소
+            const countdownElement = document.getElementById('countdown');
+
+            // 카운트다운 업데이트 함수
+            function updateCountdown() {
+                if (countdownTime >= 0) {
+                    countdownElement.innerHTML = countdownTime;
+                    countdownTime--;
+                } else {
+                    clearInterval(countdownInterval);
+                    countdownElement.innerHTML = "꽝!";
+                }
+            }
+
+            // 1초마다 updateCountdown 함수 실행
+            updateCountdown(); // 즉시 실행하여 바로 표시
+            const countdownInterval = setInterval(updateCountdown, 1000);
+        }
+        
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+<div id="countdown"></div>
+<button onclick="startCountdown()">Start Countdown</button>
+<script src="countdown.js"></script>
+
+</body>
+
+</html>
